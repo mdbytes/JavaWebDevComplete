@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head" />
+<body>
+    <nav th:replace="fragments/nav :: nav"  />
+    <div class="container pt-4">
+        <h1>Hello World!</h1>
+        <p th:text="'Time on the server is ' + ${theDate}" class="green-italic"/>
+    </div>
+
+<footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

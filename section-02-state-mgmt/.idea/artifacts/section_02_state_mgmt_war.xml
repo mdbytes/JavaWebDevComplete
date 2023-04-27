@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="section-02-state-mgmt:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>section-02-state-mgmt</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="section-02-state-mgmt-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="section-02-state-mgmt:war exploded" />
+    </root>
+  </artifact>
+</component>

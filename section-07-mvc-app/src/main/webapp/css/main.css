@@ -1,0 +1,39 @@
+.school-heading {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-weight: 900 !important;
+}
+
+.school-logo img {
+    height: 125px;
+    width: auto;
+}
+
+.color-purple {
+    color: #402b7f;
+}
+
+.bg-purple {
+    background-color: #402b7f;
+}
+
+.border-purple {
+    border-color: #402b7f;
+}
+
+.color-green {
+    color: #145c2e;
+}
+
+.bg-green {
+    background-color: #145c2e;
+}
+
+.border-green {
+    border-color: #145c2e;
+}
