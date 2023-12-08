@@ -48,11 +48,11 @@ Sections 1 - 7</h4>
 - Spring Boot with Spring Data REST
 - Spring Boot with Thymeleaf
 
-Credit to instructor <a href="http://www.luv2code.com/" target="_blank">Chad Darby</a> for introducing so much of these topics and covering him so well in his various Java courses. Much of the material here is an outgrowth of what Chad has shared.
+Credit to instructor <a href="http://www.luv2code.com/" target="_blank">Chad Darby</a> for introducing so many of these topics and covering them so well in his various courses. Much of the material here is an outgrowth of what Chad has shared.
 
 I highly recommend Chad's courses, all of which can be found <a href="https://www.udemy.com/user/chaddarby2/">here</a>.
 
-While grateful to Chad's courses, all of the code in this repository differs, in part of in some cases in whole, from that provided in the course work.
+While grateful to Chad's courses, all of the code in this repository differs, in part of in some cases in whole, from that provided in the course work. Any errors that exist here are solely mine.
 
 Recently, for example, Section 10 has been expanded substantially for command line testing of database access with Spring JPA Repositories and Service layers.
 
