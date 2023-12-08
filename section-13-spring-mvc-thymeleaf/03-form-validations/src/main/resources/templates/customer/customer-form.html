@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Customer Form</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}" />
+  </head>
+  <body>
+    <div class="container pt-4">
+      <i>Asterisk (*) means required</i>
+      <form method="POST" th:action="@{process-form}" th:object="${customer}">
+        <div class="mb-3">
+          <label class="form-label" for="firstName">First Name</label>
+          <input class="form-control" id="firstName" th:field="*{firstName}" type="text" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="lastName">Last Name (*)</label>
+          <input class="form-control" id="lastName" th:field="*{lastName}" type="text" />
+          <span class="error" th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="freePasses">Free Passes</label>
+          <input class="form-control" id="freePasses" th:field="*{freePasses}" type="text" />
+          <span class="error" th:errors="*{freePasses}" th:if="${#fields.hasErrors('freePasses')}" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="postalCode">Postal Code (*)</label>
+          <input class="form-control" id="postalCode" th:field="*{postalCode}" type="text" />
+          <span class="error" th:errors="*{postalCode}" th:if="${#fields.hasErrors('postalCode')}" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="courseCode">Course Code (*)</label>
+          <input class="form-control" id="courseCode" th:field="*{courseCode}" type="text" />
+          <span class="error" th:errors="*{courseCode}" th:if="${#fields.hasErrors('courseCode')}" />
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
 </html>

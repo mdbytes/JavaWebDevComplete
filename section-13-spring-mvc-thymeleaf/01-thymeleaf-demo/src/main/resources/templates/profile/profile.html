@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  </head>
+  <body>
+    <div class="container pt-4">
+      <h1>Your profile page:</h1>
+
+      <h3 th:text="${message}" class="text-danger fst-italic small"></h3>
+    </div>
+  </body>
+</html>
