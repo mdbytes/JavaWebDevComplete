@@ -55,3 +55,7 @@ I highly recommend Chad's courses, all of which can be found <a href="https://ww
 While grateful to Chad's courses, all of the code in this repository differs, in part of in some cases in whole, from that provided in the course work.
 
 Recently, for example, Section 10 has been expanded substantially for command line testing of database access with Spring JPA Repositories and Service layers.
+
+Update: Getting to some new material the next few weeks related to MVC, Advanced Data Mappings, and AOP.
+
+2008.12.08

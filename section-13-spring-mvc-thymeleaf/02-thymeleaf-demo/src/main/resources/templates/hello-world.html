@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello</title>
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  </head>
+  <body>
+    <div class="container p-4">
+      <h1>Hello World!</h1>
+      <h3>Thymeleaf Demo</h3>
+
+      <h4 th:text="'Time on the server is' + ${theDate}" class="funny"></h4>
+
+      <a href="/show-form" class="btn btn-primary">Show Form </a>
+    </div>
+  </body>
+</html>
