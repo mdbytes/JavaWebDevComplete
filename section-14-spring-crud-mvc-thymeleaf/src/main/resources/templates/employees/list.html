@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Employee List</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container pt-4">
+
+    <h1>Employee List</h1>
+
+    <a class="btn btn-success mt-5 mb-2" th:href="@{/employees/employee-form}">Add</a>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr th:each="e : ${employees}">
+            <td th:text="${e.id}"></td>
+            <td th:text="${e.firstName}"></td>
+            <td th:text="${e.lastName}"></td>
+            <td th:text="${e.email}"></td>
+            <td>
+                <a class="btn btn-secondary" th:href="@{/employees/update(id=${e.id})}">Update</a>
+
+                <a class="btn btn-danger" onclick="if (!(confirm('Are you sure?'))) return false"
+                   th:href="@{/employees/delete(id=${e.id})}">Delete</a>
+
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+</body>
+</html>

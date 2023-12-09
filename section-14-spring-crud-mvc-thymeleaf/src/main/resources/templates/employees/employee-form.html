@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Employee Form</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4 mb-4">Employee Form</h1>
+    <form method="POST" th:action="@{/employees/update}" th:object="${employee}">
+
+
+        <!-- hidden form field to handle update -->
+        <input th:field="*{id}" type="hidden">
+
+        <div class="mb-3 col-lg-6">
+            <label class="form-label" for="firstName">First Name</label>
+            <input class="form-control" id="firstName" th:field="*{firstName}" type="text">
+        </div>
+        <div class="mb-3 col-lg-6">
+            <label class="form-label" for="lastName">Last Name</label>
+            <input class="form-control" id="lastName" th:field="*{lastName}" type="text">
+        </div>
+        <div class="mb-3 col-lg-6">
+            <label class="form-label" for="exampleInputEmail1">Email address</label>
+            <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" th:field="*{email}"
+                   type="email">
+            <div class="form-text" id="emailHelp">We'll never share your email with anyone else.</div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <a class="btn btn-secondary mt-4" th:href="@{/employees/list}">Back to list</a>
+</div>
+</body>
+</html>
