@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>MD Bytes</title>
+
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<div class="container pt-4">
+  <h1 class="display-3">Company Home</h1>
+
+  <p class="display-5">Welcome!</p>
+
+  <p>User: <span sec:authentication="principal.username"></span></p>
+  <p>Roles: <span sec:authentication="principal.authorities"></span></p>
+
+  <a class="btn btn-info" th:href="@{/leaders}">Leaders</a>
+
+  <a class="btn btn-info" th:href="@{/systems}">Systems</a>
+
+
+  <form method="POST" th:action="@{/logout}">
+    <button class="btn btn-primary" type="submit">Logout</button>
+  </form>
+
+</div>
+</body>
+</html>
