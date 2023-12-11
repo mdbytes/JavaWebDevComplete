@@ -16,4 +16,19 @@ public class SecurityController {
         return "login";
     }
 
+    @GetMapping("/leaders")
+    public String leaders() {
+        return "leaders";
+    }
+
+    @GetMapping("/systems")
+    public String systems() {
+        return "systems";
+    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "access-denied";
+    }
+
 }

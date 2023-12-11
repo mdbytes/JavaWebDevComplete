@@ -27,6 +27,9 @@ public class DemoSecurityConfig {
                 .authorizeHttpRequests(configurer ->
                         configurer
                                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                                .requestMatchers("/").hasRole("EMPLOYEE")
+                                .requestMatchers("/leaders").hasRole("MANAGER")
+                                .requestMatchers("/systems").hasRole("ADMIN")
                                 .anyRequest().authenticated()
 
                 )
@@ -39,7 +42,9 @@ public class DemoSecurityConfig {
                 .logout(logout ->
                         logout
                                 .permitAll()
-                );
+                )
+                .exceptionHandling(configurer ->
+                        configurer.accessDeniedPage("/access-denied"));
 
         return http.build();
     }

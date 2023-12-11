@@ -1,16 +1,21 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>MD Bytes</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-  </head>
-  <body>
-    <div class="container pt-4">
-      <h1>Home</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>MD Bytes</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container pt-4">
+  <h1 class="text-lg-center">Home</h1>
 
-      <p>Welcome!</p>
-    </div>
-  </body>
+  <p class="text-sm-center">Welcome!</p>
+
+  <form method="POST" th:action="@{/logout}">
+    <button class="btn btn-primary" type="submit">Logout</button>
+  </form>
+
+</div>
+</body>
 </html>

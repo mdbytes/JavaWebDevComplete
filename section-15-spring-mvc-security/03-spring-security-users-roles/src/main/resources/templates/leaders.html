@@ -4,24 +4,30 @@
 <head>
   <meta charset="UTF-8" />
   <title>MD Bytes</title>
-  <link rel="stylesheet" th:href="@{/css/main.css}" />
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
 <body>
+<header th:insert="fragments/navbar.html"></header>
 <div class="container pt-4">
-  <h1 class="text-lg-center">Home</h1>
+  <h1 class="display-3">Leadership Page</h1>
 
-  <p class="text-sm-center">Welcome!</p>
+  <p class="display-5">Welcome!</p>
 
   <p>User: <span sec:authentication="principal.username"></span></p>
   <p>Roles: <span sec:authentication="principal.authorities"></span></p>
 
-  <a class="btn btn-info" th:href="@{/leaders}">Leaders</a>
+  <h4>Announcement</h4>
+  <p>Employee reviews are due next week, including pay raise recommendations.</p>
+
+
+  <a class="btn btn-info my-3" th:href="@{/}">Home</a>
 
   <form method="POST" th:action="@{/logout}">
     <button class="btn btn-primary" type="submit">Logout</button>
   </form>
 
 </div>
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+<html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
@@ -9,23 +9,17 @@
   <link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
 <body>
+<header th:insert="fragments/navbar.html"></header>
 <div class="container pt-4">
-  <h1 class="display-3">Company Home</h1>
+  <h1 class="display-3">Access Denied</h1>
 
-  <p class="display-5">Welcome!</p>
+  <p class="display-5">Oops!</p>
 
-  <p>User: <span sec:authentication="principal.username"></span></p>
-  <p>Roles: <span sec:authentication="principal.authorities"></span></p>
+  <p class="text-bg-danger text-white p-2 text-center">You are not authorized to access this page.</p>
 
-  <a class="btn btn-info" th:href="@{/leaders}">Leaders</a>
-
-  <a class="btn btn-info" th:href="@{/systems}">Systems</a>
-
-
-  <form method="POST" th:action="@{/logout}">
-    <button class="btn btn-primary" type="submit">Logout</button>
-  </form>
+  <a class="btn btn-info" th:href="@{/}">Home</a>
 
 </div>
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
