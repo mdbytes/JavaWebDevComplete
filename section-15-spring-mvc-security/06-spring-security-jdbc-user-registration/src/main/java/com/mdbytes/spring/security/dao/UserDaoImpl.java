@@ -1,11 +1,11 @@
 package com.mdbytes.spring.security.dao;
 
-import com.luv2code.springboot.demosecurity.entity.User;
+import com.mdbytes.spring.security.model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class UserDaoImpl implements UserDao {

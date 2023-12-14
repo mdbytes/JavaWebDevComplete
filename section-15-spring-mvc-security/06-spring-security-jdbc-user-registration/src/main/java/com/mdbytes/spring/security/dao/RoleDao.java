@@ -1,6 +1,6 @@
 package com.mdbytes.spring.security.dao;
 
-import com.luv2code.springboot.demosecurity.entity.Role;
+import com.mdbytes.spring.security.model.Role;
 
 public interface RoleDao {
 

@@ -1,7 +1,7 @@
 package com.mdbytes.spring.security.service;
 
-import com.luv2code.springboot.demosecurity.entity.User;
-import com.luv2code.springboot.demosecurity.user.WebUser;
+import com.mdbytes.spring.security.model.User;
+import com.mdbytes.spring.security.model.WebUser;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

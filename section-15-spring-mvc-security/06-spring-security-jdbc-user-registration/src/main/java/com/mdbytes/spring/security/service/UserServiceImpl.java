@@ -1,10 +1,11 @@
 package com.mdbytes.spring.security.service;
 
-import com.luv2code.springboot.demosecurity.dao.RoleDao;
-import com.luv2code.springboot.demosecurity.dao.UserDao;
-import com.luv2code.springboot.demosecurity.entity.Role;
-import com.luv2code.springboot.demosecurity.entity.User;
-import com.luv2code.springboot.demosecurity.user.WebUser;
+
+import com.mdbytes.spring.security.dao.RoleDao;
+import com.mdbytes.spring.security.dao.UserDao;
+import com.mdbytes.spring.security.model.Role;
+import com.mdbytes.spring.security.model.User;
+import com.mdbytes.spring.security.model.WebUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

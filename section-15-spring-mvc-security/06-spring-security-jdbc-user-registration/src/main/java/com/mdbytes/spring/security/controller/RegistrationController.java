@@ -1,24 +1,19 @@
 package com.mdbytes.spring.security.controller;
 
-import java.util.logging.Logger;
-
-import com.luv2code.springboot.demosecurity.entity.User;
-import com.luv2code.springboot.demosecurity.service.UserService;
-import com.luv2code.springboot.demosecurity.user.WebUser;
+import com.mdbytes.spring.security.model.User;
+import com.mdbytes.spring.security.model.WebUser;
+import com.mdbytes.spring.security.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/register")

@@ -1,6 +1,7 @@
 package com.mdbytes.spring.security.dao;
 
-import com.luv2code.springboot.demosecurity.entity.User;
+
+import com.mdbytes.spring.security.model.User;
 
 public interface UserDao {
 

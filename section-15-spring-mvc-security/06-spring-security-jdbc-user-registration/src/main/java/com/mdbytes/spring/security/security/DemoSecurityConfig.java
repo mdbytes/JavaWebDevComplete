@@ -1,7 +1,7 @@
 package com.mdbytes.spring.security.security;
 
 
-import com.luv2code.springboot.demosecurity.service.UserService;
+import com.mdbytes.spring.security.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

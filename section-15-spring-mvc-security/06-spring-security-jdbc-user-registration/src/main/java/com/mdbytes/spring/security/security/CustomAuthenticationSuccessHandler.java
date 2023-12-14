@@ -1,7 +1,8 @@
 package com.mdbytes.spring.security.security;
 
-import com.luv2code.springboot.demosecurity.entity.User;
-import com.luv2code.springboot.demosecurity.service.UserService;
+
+import com.mdbytes.spring.security.model.User;
+import com.mdbytes.spring.security.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
