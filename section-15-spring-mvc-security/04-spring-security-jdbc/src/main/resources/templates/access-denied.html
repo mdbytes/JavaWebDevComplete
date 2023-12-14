@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>MD Bytes</title>
+
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<header th:insert="fragments/navbar.html"></header>
+<div class="container pt-4">
+  <h1 class="display-3">Access Denied</h1>
+
+  <p class="display-5">Oops!</p>
+
+  <p class="text-bg-danger text-white p-2 text-center">You are not authorized to access this page.</p>
+
+  <a class="btn btn-info" th:href="@{/}">Home</a>
+
+</div>
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

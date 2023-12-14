@@ -1,0 +1,15 @@
+.btn {
+    width: 8rem;
+}
+
+[class^="display-"] {
+    text-align: center;
+}
+
+.display-3 {
+    font-weight: 600;
+}
+
+.display-5 {
+    font-weight: 500;
+}
