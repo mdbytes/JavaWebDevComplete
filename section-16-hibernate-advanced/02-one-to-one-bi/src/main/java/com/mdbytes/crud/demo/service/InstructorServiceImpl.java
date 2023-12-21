@@ -2,20 +2,18 @@ package com.mdbytes.crud.demo.service;
 
 import com.mdbytes.crud.demo.entity.Instructor;
 import com.mdbytes.crud.demo.repository.InstructorRepository;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class AppServiceImpl implements AppService {
+public class InstructorServiceImpl implements InstructorService {
 
     private InstructorRepository instructorRepository;
 
     @Autowired
-    public AppServiceImpl(InstructorRepository instructorRepository) {
+    public InstructorServiceImpl(InstructorRepository instructorRepository) {
         this.instructorRepository = instructorRepository;
     }
 

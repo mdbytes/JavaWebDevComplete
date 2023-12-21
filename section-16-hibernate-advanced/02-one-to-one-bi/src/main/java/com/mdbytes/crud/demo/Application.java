@@ -1,6 +1,7 @@
 package com.mdbytes.crud.demo;
 
-import com.mdbytes.crud.demo.service.AppService;
+import com.mdbytes.crud.demo.service.InstructorDetailService;
+import com.mdbytes.crud.demo.service.InstructorService;
 import com.mdbytes.crud.demo.entity.Instructor;
 import com.mdbytes.crud.demo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -16,34 +17,68 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AppService appService) {
+	public CommandLineRunner commandLineRunner(InstructorService appService, InstructorDetailService instructorDetailService) {
 
 		return runner -> {
-			// createInstructor(appService);
-			// findInstructor(2,appService);
-			deleteInstructor(2,appService);
+			//createInstructorDetail(instructorDetailService);
+			//createInstructor(appService);
+			//findInstructorDetail(1,instructorDetailService);
+			//deleteInstructor(2,appService);
+			deleteInstructorDetail(1,instructorDetailService);
+
 		};
 	}
 
-	private void deleteInstructor(int i, AppService appService) {
+	private void deleteInstructorDetail(int i, InstructorDetailService instructorDetailService) {
+		instructorDetailService.deleteById(i);
+	}
+
+
+	private void findInstructorDetail(int i, InstructorDetailService instructorDetailService) {
+		InstructorDetail detail = instructorDetailService.findById(i);
+		System.out.println(detail);
+		System.out.println(detail.getInstructor());
+	}
+
+	private void createInstructorDetail(InstructorDetailService instructorDetailService) {
+
+		// create instructor
+		InstructorDetail detail = new InstructorDetail("http://www.luv2code/youtube","Luvs 2 code!!!");
+		Instructor instructor = new Instructor("Marty","Dwyer","marty@luv2code.com");
+		detail.setInstructor(instructor);
+
+		System.out.println(detail);
+		instructorDetailService.save(detail);
+
+		System.out.println("done with new detail");
+
+	}
+
+	private void deleteInstructor(int i, InstructorService appService, InstructorDetailService instructorDetailService) {
 		appService.delete(1);
 	}
 
-	private void findInstructor(int i, AppService appService) {
-		Instructor instructor = appService.findInstructorById(2);
+	private void findInstructor(int i, InstructorService instructorService) {
+		Instructor instructor = instructorService.findInstructorById(2);
 		System.out.println(instructor);
 
 	}
 
-	private void createInstructor(AppService appService) {
+	private void createInstructor(InstructorService instructorService) {
 		// create instructor
 		Instructor instructor = new Instructor("Marty","Dwyer","marty@luv2code.com");
 		InstructorDetail detail = new InstructorDetail("http://www.luv2code/youtube","Luvs 2 code!!!");
 		instructor.setDetail(detail);
 
+		// create instructor
+		Instructor instructor2 = new Instructor("Chad","Darby","darby@luv2code.com");
+		InstructorDetail detail2 = new InstructorDetail("http://www.luv2code/youtube","Luv 2 code!!!");
+		instructor2.setDetail(detail2);
+
 		// save the instructor
 		System.out.println(instructor);
-		appService.save(instructor);
+		instructorService.save(instructor);
+		instructorService.save(instructor2);
 
 		System.out.println("done with new instructor");
 

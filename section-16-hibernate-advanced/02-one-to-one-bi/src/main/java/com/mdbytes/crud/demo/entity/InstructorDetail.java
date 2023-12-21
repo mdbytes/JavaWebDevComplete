@@ -19,8 +19,12 @@ public class InstructorDetail {
     @Column(name="hobby")
     private String hobby;
 
-    // 4. create constructors
+    //@OneToOne(mappedBy = "detail",cascade = CascadeType.ALL) // Deletes instructor
+    // The following allows for delete of detail without deleting instructor
+    @OneToOne(mappedBy = "detail",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    private Instructor instructor;
 
+    // 4. create constructors
     public InstructorDetail() {
     }
 
@@ -56,6 +60,13 @@ public class InstructorDetail {
     }
 
     // 6. generate toString method
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
 
     @Override
     public String toString() {

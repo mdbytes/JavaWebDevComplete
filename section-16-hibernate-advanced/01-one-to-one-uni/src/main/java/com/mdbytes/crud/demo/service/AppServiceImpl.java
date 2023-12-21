@@ -1,27 +1,38 @@
-package com.mdbytes.crud.demo.dao;
+package com.mdbytes.crud.demo.service;
 
 import com.mdbytes.crud.demo.entity.Instructor;
+import com.mdbytes.crud.demo.repository.InstructorRepository;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Repository
-public class AppDaoImpl implements AppDao {
+@Service
+public class AppServiceImpl implements AppService {
 
-    private EntityManager entityManager;
+    private InstructorRepository instructorRepository;
 
     @Autowired
-    public AppDaoImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public AppServiceImpl(InstructorRepository instructorRepository) {
+        this.instructorRepository = instructorRepository;
     }
 
     @Override
     @Transactional
     public void save(Instructor instructor) {
-        entityManager.persist(instructor);
+        instructorRepository.save(instructor);
+    }
+
+    @Override
+    public Instructor findInstructorById(Integer id) {
+        return instructorRepository.findById(id).get();
+    }
+
+    @Override
+    public void delete(int id) {
+        instructorRepository.deleteById(id);
     }
 
 
