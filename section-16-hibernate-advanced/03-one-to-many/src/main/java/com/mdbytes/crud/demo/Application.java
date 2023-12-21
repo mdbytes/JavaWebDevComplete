@@ -22,11 +22,70 @@ public class Application {
 	public CommandLineRunner commandLineRunner(InstructorService instructorService, InstructorDetailService instructorDetailService, CourseService courseService) {
 
 		return runner -> {
-			runApp(instructorService,instructorDetailService, courseService);
+
+			/*
+			 *   Uncomment one line below for each successive run to test functionality
+			 */
+
+			//appSetup(instructorService,instructorDetailService, courseService);
+			//findInstructorWithCourses(instructorService);
+			//updateInstructor(instructorService);
+			//updateCourse(courseService);
+			//deleteInstructor(instructorService);
+			//deleteExistingCourse(courseService);
 		};
 	}
 
-	private void runApp(InstructorService instructorService, InstructorDetailService instructorDetailService, CourseService courseService) {
+	private void deleteExistingCourse(CourseService courseService) {
+		System.out.println("Deleting corporate finance");
+		Course course = courseService.findCourseById(1);
+		courseService.deleteCourse(course);
+		System.out.println("done");
+	}
+
+	private void deleteInstructor(InstructorService instructorService) {
+		System.out.println("Trying to delete instructor number 2");
+		// Work is done in the service impl
+		Instructor instructor = instructorService.findInstructorById(2);
+		instructorService.deleteInstructor(instructor);
+		System.out.println("Done");
+	}
+
+	private void updateCourse(CourseService courseService) {
+		System.out.println("updating course");
+		// Changing course title from Finance to Corporate Finance
+		Course course = courseService.findCourseById(1);
+		course.setTitle("Corporate Finance");
+		courseService.save(course);
+		System.out.println("Done");
+	}
+
+	private void updateInstructor(InstructorService instructorService) {
+
+		System.out.println("Updating instructor");
+
+		// Updating instructor 1 first name from Marty to Martin
+		Instructor instructor = instructorService.findInstructorById(1);
+		instructor.setFirstName("Martin");
+		instructorService.save(instructor);
+		System.out.println("Done");
+	}
+
+	private void findInstructorWithCourses(InstructorService instructorService) {
+		Instructor instructor = instructorService.findInstructorById(1);
+
+		// Retrieve the instructors courses and reset
+		Instructor loadedInstructor = instructorService.populateInstructorCourses(instructor);
+
+		// The following produces an exception because courses are a fetch type of lazy by default
+		// Works fine when you change the fetch type to EAGER but this requires more processing and memory
+		for(Course course : loadedInstructor.getCourses()){
+			System.out.println(course);
+		}
+
+	}
+
+	private void appSetup(InstructorService instructorService, InstructorDetailService instructorDetailService, CourseService courseService) {
 
 		// Make instructors
 		// create instructor
@@ -88,71 +147,9 @@ public class Application {
 			System.out.println(course);
 		}
 
-//		// Delete instructor
-//		System.out.println("deleting instructor 2");
-//		instructorService.delete(2);
-//
-//		// Verify no courses are deleted
-//		System.out.println("Make sure courses still include Computer Science, Java, Spring Boot");
-//		for(Course course : courseService.findAll()) {
-//			System.out.println(course);
-//		}
 
 	}
 
-	private void deleteInstructorDetail(int i, InstructorDetailService instructorDetailService) {
-		instructorDetailService.deleteById(i);
-	}
 
-
-	private void findInstructorDetail(int i, InstructorDetailService instructorDetailService) {
-		InstructorDetail detail = instructorDetailService.findById(i);
-		System.out.println(detail);
-		System.out.println(detail.getInstructor());
-	}
-
-	private void createInstructorDetail(InstructorDetailService instructorDetailService) {
-
-		// create instructor
-		InstructorDetail detail = new InstructorDetail("http://www.luv2code/youtube","Luvs 2 code!!!");
-		Instructor instructor = new Instructor("Marty","Dwyer","marty@luv2code.com");
-		detail.setInstructor(instructor);
-
-		System.out.println(detail);
-		instructorDetailService.save(detail);
-
-		System.out.println("done with new detail");
-
-	}
-
-	private void deleteInstructor(int i, InstructorService appService, InstructorDetailService instructorDetailService) {
-		appService.delete(1);
-	}
-
-	private void findInstructor(int i, InstructorService instructorService) {
-		Instructor instructor = instructorService.findInstructorById(2);
-		System.out.println(instructor);
-
-	}
-
-	private void createInstructor(InstructorService instructorService) {
-		// create instructor
-		Instructor instructor = new Instructor("Marty","Dwyer","marty@luv2code.com");
-		InstructorDetail detail = new InstructorDetail("http://www.luv2code/youtube","Luvs 2 code!!!");
-		instructor.setDetail(detail);
-
-		// create instructor
-		Instructor instructor2 = new Instructor("Chad","Darby","darby@luv2code.com");
-		InstructorDetail detail2 = new InstructorDetail("http://www.luv2code/youtube","Luv 2 code!!!");
-		instructor2.setDetail(detail2);
-
-		// save the instructor
-		System.out.println(instructor);
-		instructorService.save(instructor);
-		instructorService.save(instructor2);
-
-		System.out.println("done with new instructor");
-
-	}
 
 }

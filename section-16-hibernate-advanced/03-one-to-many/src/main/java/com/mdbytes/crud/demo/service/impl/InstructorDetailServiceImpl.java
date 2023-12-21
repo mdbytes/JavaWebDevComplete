@@ -1,7 +1,8 @@
-package com.mdbytes.crud.demo.service;
+package com.mdbytes.crud.demo.service.impl;
 
 import com.mdbytes.crud.demo.entity.InstructorDetail;
 import com.mdbytes.crud.demo.repository.InstructorDetailRepository;
+import com.mdbytes.crud.demo.service.InstructorDetailService;
 import org.springframework.stereotype.Service;
 
 @Service
